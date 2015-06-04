@@ -3,9 +3,11 @@
 
 <:Body>
   <form e-submit="enter_session" role="form">
-    <:fields:text value="{{ page._session }}" label="Existing session:" />
+    <:fields:text value="{{ page._session }}" label="Existing session (optional):" />
 
     <:fields:text value="{{ page._user }}" label="Your name:" />
 
-    <button class="btn btn-default">Go!</button>
+    <button class="btn btn-default">
+      {{ page._session.to_s.empty? ? "Create session" : "Enter session" }}
+    </button>
   </form>
