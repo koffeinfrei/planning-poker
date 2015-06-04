@@ -38,21 +38,15 @@ module Main
     end
 
     def estimates
-      result = nil
-
-      store._estimates.find({
-        session: params._session,
-      }).then do |estimates|
-        result = estimates
-      end
-
-      result || []
+      store._estimates.find(session: params._session)
     end
 
     def reset_round
       store._estimates.find(session: params._session).then do |estimates|
         estimates.each do |estimate|
-          estimate._point = nil
+          # nil won't work as it will be ignored and no update will
+          # be triggered (somehow)
+          estimate._point = false
         end
       end
     end
