@@ -24,6 +24,11 @@ body {
   margin: 10px;
 }
 
+.card-wrapper a {
+  // get rid of outline border when clicked
+  outline: none;
+}
+
 .card-wrapper a:hover {
   opacity: 0.5;
 }
