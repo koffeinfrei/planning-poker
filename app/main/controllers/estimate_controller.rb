@@ -41,7 +41,7 @@ module Main
       store._estimates.find({
         session: params._session,
       }).then do |estimates|
-        if estimates.all? { |x| x._point }
+        if estimates.all?(&:_point)
           estimates.map(&:_point).join(', ')
         else
           "not yet"
