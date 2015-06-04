@@ -49,6 +49,14 @@ module Main
       result || []
     end
 
+    def reset_round
+      store._estimates.find(session: params._session).then do |estimates|
+        estimates.each do |estimate|
+          estimate._point = nil
+        end
+      end
+    end
+
     def round_finished?
       estimates.all?(&:_point)
     end

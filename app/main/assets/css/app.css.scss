@@ -24,3 +24,20 @@
   text-align: center;
   width: 100%;
 }
+
+.actions {
+  margin: 20px 0 0 0;
+  text-align: center;
+}
+
+
+// overwrites
+
+.header {
+  border-bottom: none;
+}
+
+.footer {
+  margin-top: 20px;
+  border-top: none;
+}
