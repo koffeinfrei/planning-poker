@@ -1,11 +1,11 @@
 // Place your apps css here
 .card {
-  border: 1px solid #000;
+  border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 7px;
 }
 
 .card.active {
-  border-width: 5px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
 }
 
 .card-container {
@@ -24,13 +24,20 @@
   opacity: 0.5;
 }
 
+.card-wrapper a:hover img {
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+
 .user-name {
   position: absolute;
-  top: 20px;
+  top: 0;
   z-index: 1;
   color: #fff;
   text-align: center;
   width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
 }
 
 .actions {

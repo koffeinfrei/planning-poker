@@ -15,10 +15,10 @@
   <div class="card-container">
   {{ estimates.each do |estimate| }}
     <div class="card-wrapper">
+      <div class="user-name">{{ estimate._user }}</div>
       {{ if round_finished? }}
         <img src="{{ card_image_url(estimate._point) }}" class="card" />
       {{ else }}
-        <div class="user-name">{{ estimate._user }}</div>
         <img src="{{ '/assets/images/back.jpg' }}" class="card" />
       {{ end }}
     </div>
