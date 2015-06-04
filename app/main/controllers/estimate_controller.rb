@@ -55,12 +55,6 @@ module Main
       estimates.all?(&:_point)
     end
 
-    def available_users
-      store._estimates.find(session: params._session).then do |estimates|
-        estimates.map(&:_user).join(', ')
-      end
-    end
-
     def set_point(point)
       self.model._point = point
     end
