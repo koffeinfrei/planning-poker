@@ -1,8 +1,23 @@
+# require 'stdlib/securerandom'
+require 'securerandom'
+
 module Main
   class EstimateController < Volt::ModelController
     model :store
 
     def index
+    end
+
+    def enter_session
+      session = page._session.to_s.empty? ? generate_random_string : page._session
+      user = page._user.to_s.empty? ? "user-#{generate_random_string}" : page._user
+
+      # `redirect_to "/estimate/#{session}/#{user}"` somehow messes up
+      # the page state and yields weird task errors.
+      `window.location.href = '/estimate/' + session + '/' + user`
+    end
+
+    def show
       session_id = params._session_id
       user_id = params._user_id
 
@@ -36,6 +51,11 @@ module Main
 
     def set_estimate(point)
       self.model._point = point
+    end
+
+    # `SecureRandom.urlsafe_base64` is missing from opal
+    def generate_random_string
+      `Math.random().toString(36).substr(2)`
     end
   end
 end

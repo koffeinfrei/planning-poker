@@ -1,0 +1,11 @@
+<:Title>
+  Estimate!
+
+<:Body>
+  {{ available_points.each do |point| }}
+    <a e-click="set_estimate(point)">{{ point }}</a>
+  {{ end }}
+
+  <p>
+  Result: {{ result }}
+  </p>

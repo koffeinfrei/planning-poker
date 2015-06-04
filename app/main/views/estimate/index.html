@@ -1,11 +1,11 @@
 <:Title>
-  Estimate!
+  Get ready!
 
 <:Body>
-  {{ available_points.each do |point| }}
-    <a e-click="set_estimate(point)">{{ point }}</a>
-  {{ end }}
+  <form e-submit="enter_session" role="form">
+    <:fields:text value="{{ page._session }}" label="Existing session:" />
 
-  <p>
-  Result: {{ result }}
-  </p>
+    <:fields:text value="{{ page._user }}" label="Your name:" />
+
+    <button>Go!</button>
+  </form>
