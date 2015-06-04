@@ -3,7 +3,7 @@
 client '/about', action: 'about'
 
 client '/estimate', controller: 'estimate', action: 'index'
-client '/estimate/{{session_id}}/{{user_id}}', controller: 'estimate', action: 'show'
+client '/estimate/{{session}}/{{user}}', controller: 'estimate', action: 'show'
 
 # Routes for login and signup, provided by user_templates component gem
 client '/signup', component: 'user_templates', controller: 'signup'

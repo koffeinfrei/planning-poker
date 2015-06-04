@@ -18,15 +18,15 @@ module Main
     end
 
     def show
-      session_id = params._session_id
-      user_id = params._user_id
+      session = params._session
+      user = params._user
 
-      store._estimates.find(user_id: user_id).then do |estimates|
+      store._estimates.find(user: user).then do |estimates|
         estimates.reverse.each(&:destroy)
       end.then do
         store._estimates << {
-          user_id: user_id,
-          session_id: session_id
+          user: user,
+          session: session
         }
       end.then do |estimate|
         self.model = estimate
@@ -39,7 +39,7 @@ module Main
 
     def result
       store._estimates.find({
-        session_id: params._session_id,
+        session: params._session,
       }).then do |estimates|
         if estimates.all? { |x| x._point }
           estimates.map(&:_point).join(', ')
