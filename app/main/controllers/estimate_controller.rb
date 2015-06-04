@@ -34,7 +34,7 @@ module Main
     end
 
     def available_points
-      [1, 3, 5, 8]
+      [1, 2, 3, 5, 8]
     end
 
     def estimates
@@ -66,6 +66,10 @@ module Main
     # `SecureRandom.urlsafe_base64` is missing from opal
     def generate_random_string
       `Math.random().toString(36).substr(2)`
+    end
+
+    def card_image_url(point)
+      "/assets/images/b_#{point}.jpg"
     end
   end
 end

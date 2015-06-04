@@ -2,14 +2,25 @@
   Estimate!
 
 <:Body>
-  <p>
+  <div class="card-container">
   {{ available_points.each do |point| }}
-    <a e-click="set_point(point)">{{ point }}</a>
+    <div class="card-wrapper">
+      <a e-click="set_point(point)">
+        <img src="{{ card_image_url(point) }}" class="card" />
+      </a>
+    </div>
   {{ end }}
-  </p>
+  </div>
 
-  <ul>
+  <div class="card-container">
   {{ estimates.each do |estimate| }}
-    <li>{{estimate._user}}: {{estimate._point if round_finished?}}</li>
+    <div class="card-wrapper">
+      {{ if round_finished? }}
+        <img src="{{ card_image_url(estimate._point) }}" class="card" />
+      {{ else }}
+        <div class="user-name">{{ estimate._user }}</div>
+        <img src="{{ '/assets/images/back.jpg' }}" class="card" />
+      {{ end }}
+    </div>
   {{ end }}
-  </ul>
+  </div>
