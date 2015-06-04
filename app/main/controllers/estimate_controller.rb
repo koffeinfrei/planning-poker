@@ -1,6 +1,3 @@
-# require 'stdlib/securerandom'
-require 'securerandom'
-
 module Main
   class EstimateController < Volt::ModelController
     model :store
