@@ -4,6 +4,10 @@
   border-radius: 7px;
 }
 
+.card.active {
+  border-width: 5px;
+}
+
 .card-container {
   display: flex;
   flex-wrap: wrap;

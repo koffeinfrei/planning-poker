@@ -6,7 +6,7 @@
   {{ available_points.each do |point| }}
     <div class="card-wrapper">
       <a e-click="set_point(point)">
-        <img src="{{ card_image_url(point) }}" class="card" />
+        <img src="{{ card_image_url(point) }}" class="card{{ ' active' if _point == point}}" />
       </a>
     </div>
   {{ end }}
