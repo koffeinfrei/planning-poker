@@ -5,15 +5,6 @@ module Main
     def index
     end
 
-    def enter_session
-      session = page._session.to_s.empty? ? generate_random_string : page._session
-      user = page._user.to_s.empty? ? "user-#{generate_random_string}" : page._user
-
-      # `redirect_to "/estimate/#{session}/#{user}"` somehow messes up
-      # the page state and yields weird task errors.
-      `window.location.href = '/estimate/' + session + '/' + user`
-    end
-
     def show
       session = params._session
       user = params._user
@@ -28,6 +19,17 @@ module Main
       end.then do |estimate|
         self.model = estimate
       end
+    end
+
+    private
+
+    def enter_session
+      session = page._session.to_s.empty? ? generate_random_string : page._session
+      user = page._user.to_s.empty? ? "user-#{generate_random_string}" : page._user
+
+      # `redirect_to "/estimate/#{session}/#{user}"` somehow messes up
+      # the page state and yields weird task errors.
+      `window.location.href = '/estimate/' + session + '/' + user`
     end
 
     def available_points
