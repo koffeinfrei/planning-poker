@@ -2,10 +2,14 @@
   Estimate!
 
 <:Body>
-  {{ available_points.each do |point| }}
-    <a e-click="set_estimate(point)">{{ point }}</a>
-  {{ end }}
-
   <p>
-  Result: {{ result }}
+  {{ available_points.each do |point| }}
+    <a e-click="set_point(point)">{{ point }}</a>
+  {{ end }}
   </p>
+
+  <ul>
+  {{ estimates.each do |estimate| }}
+    <li>{{estimate._user}}: {{estimate._point if round_finished?}}</li>
+  {{ end }}
+  </ul>

@@ -37,19 +37,29 @@ module Main
       [1, 3, 5, 8]
     end
 
-    def result
+    def estimates
+      result = nil
+
       store._estimates.find({
         session: params._session,
       }).then do |estimates|
-        if estimates.all?(&:_point)
-          estimates.map(&:_point).join(', ')
-        else
-          "not yet"
-        end
+        result = estimates
+      end
+
+      result || []
+    end
+
+    def round_finished?
+      estimates.all?(&:_point)
+    end
+
+    def available_users
+      store._estimates.find(session: params._session).then do |estimates|
+        estimates.map(&:_user).join(', ')
       end
     end
 
-    def set_estimate(point)
+    def set_point(point)
       self.model._point = point
     end
 
