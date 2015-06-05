@@ -4,9 +4,9 @@
 <:Body>
   <div class="card-container">
   {{ available_points.each do |point| }}
-    <div class="card-wrapper">
+    <div class="card-wrapper{{ ' active' if _point == point}}">
       <a e-click="set_point(point)">
-        <img src="{{ card_image_url(point) }}" class="card{{ ' active' if _point == point}}" />
+        <img src="{{ card_image_url(point) }}" class="card" />
       </a>
     </div>
   {{ end }}
@@ -19,7 +19,7 @@
       {{ if round_finished? }}
         <img src="{{ card_image_url(estimate._point) }}" class="card" />
       {{ else }}
-        <img src="{{ '/assets/images/back.jpg' }}" class="card" />
+        <img src="{{ '/assets/images/back.png' }}" class="card" />
       {{ end }}
     </div>
   {{ end }}

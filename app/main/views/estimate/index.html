@@ -7,6 +7,21 @@
 
     <:fields:text value="{{ page._user }}" label="Your name:" />
 
+    <div class="form-group">
+      <label class="control-label">Card deck:</label>
+
+      <div>
+        {{ available_card_decks.each do |deck| }}
+          <div class="card-wrapper card-deck-selection{{ ' active' if page._card_deck == deck}}">
+            <a e-click="set_card_deck(deck)">
+              <img src="{{ card_deck_preview_image_url(deck) }}" />
+            </a>
+          </div>
+        {{ end }}
+        <input type="hidden" value="{{ page._card_deck }}" />
+      </div>
+    </div>
+
     <button class="btn btn-default">
       {{ page._session.to_s.empty? ? "Create session" : "Enter session" }}
     </button>

@@ -3,6 +3,8 @@ module Main
     model :store
 
     def index
+      random_index = rand(available_card_decks.length)
+      set_card_deck(available_card_decks[random_index])
     end
 
     def show
@@ -26,10 +28,11 @@ module Main
     def enter_session
       session = page._session.to_s.empty? ? generate_random_string : page._session
       user = page._user.to_s.empty? ? "user-#{generate_random_string}" : page._user
+      card_deck = page._card_deck
 
       # `redirect_to "/estimate/#{session}/#{user}"` somehow messes up
       # the page state and yields weird task errors.
-      `window.location.href = '/estimate/' + session + '/' + user`
+      `window.location.href = '/estimate/' + session + '/' + card_deck + '/' + user`
     end
 
     def available_points
@@ -64,7 +67,19 @@ module Main
     end
 
     def card_image_url(point)
-      "/assets/images/b_#{point}.jpg"
+      "/assets/images/#{params._card_deck}_#{point}.png"
+    end
+
+    def card_deck_preview_image_url(deck)
+      "/assets/images/#{deck}_joker.png"
+    end
+
+    def available_card_decks
+      ('a'..'f').to_a
+    end
+
+    def set_card_deck(deck)
+      page._card_deck = deck
     end
   end
 end
