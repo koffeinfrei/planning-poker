@@ -12,9 +12,9 @@
 
       <div>
         {{ available_card_decks.each do |deck| }}
-          <div class="card-wrapper card-deck-selection{{ ' active' if page._card_deck == deck}}">
+          <div class="card-wrapper small{{ ' active' if page._card_deck == deck}}">
             <a e-click="set_card_deck(deck)">
-              <img src="{{ card_deck_preview_image_url(deck) }}" />
+              <img src="{{ card_deck_preview_image_url(deck) }}" class="card" />
             </a>
           </div>
         {{ end }}

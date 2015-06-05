@@ -3,11 +3,6 @@ body {
   background: url('/assets/images/background.png')
 }
 
-.card {
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 7px;
-}
-
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -27,13 +22,30 @@ body {
   text-decoration: none;
 }
 
-.card-wrapper a:hover {
+.card-wrapper a:hover,
+.card-wrapper.small a:hover,
+.card-wrapper.active a,
+.card-wrapper.small.active a {
   opacity: 1;
   text-decoration: none;
 }
 
-.card-wrapper.active a {
-  opacity: 1;
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 7px;
+}
+
+.card-wrapper.small {
+  margin-left: 0;
+}
+
+.card-wrapper.small a {
+  opacity: 0.5;
+}
+
+.card-wrapper.small .card {
+  height: 70px;
+  border-radius: 3px;
 }
 
 .card-wrapper.active img {
@@ -59,15 +71,6 @@ body {
 .actions {
   margin: 20px 0 0 0;
   text-align: center;
-}
-
-.card-deck-selection {
-  margin-left: 0;
-}
-
-.card-deck-selection img {
-  height: 70px;
-  border-radius: 3px;
 }
 
 // overwrites
