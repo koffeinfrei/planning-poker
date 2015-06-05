@@ -13,6 +13,9 @@ body {
   display: inline;
   position: relative;
   margin: 10px;
+  perspective: 500px;
+  width: 110px;
+  height: 150px;
 }
 
 .card-wrapper a {
@@ -59,13 +62,38 @@ body {
 .user-name {
   position: absolute;
   top: 0;
-  z-index: 1;
   color: #fff;
   text-align: center;
   width: 100%;
   background: rgba(0, 0, 0, 0.3);
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
+}
+
+.card-front,
+.card-back {
+  backface-visibility: hidden;
+  position: absolute;
+}
+
+.card-front {
+  transform: rotateY(-179deg);
+  transform-style: preserve-3d;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.card-back {
+  transform: rotateX(0deg) rotateY(0deg);
+  transform-style: preserve-3d;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.flip .card-front {
+  transform: rotateX(0deg) rotateY(0deg);
+}
+
+.flip .card-back {
+  transform: rotateY(180deg);
 }
 
 .actions {

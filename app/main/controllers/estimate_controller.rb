@@ -44,6 +44,11 @@ module Main
     end
 
     def reset_round
+      # we need this for the flip card animation to go smoothly.
+      # without this the `model._point` is cleared and the card image is
+      # hidden before the flip animation is done.
+      page._last_estimate_point = model._point
+
       store._estimates.find(session: params._session).then do |estimates|
         estimates.each do |estimate|
           # nil won't work as it will be ignored and no update will
