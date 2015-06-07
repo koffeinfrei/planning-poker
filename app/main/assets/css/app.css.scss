@@ -96,7 +96,12 @@ body {
   transform: rotateY(180deg);
 }
 
-.actions {
+
+.action-header {
+  margin: 0 0 20px 0;
+}
+
+.action-footer {
   margin: 20px 0 0 0;
   text-align: center;
 }

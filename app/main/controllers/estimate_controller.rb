@@ -3,11 +3,18 @@ module Main
     model :store
 
     def index
+      # the routing doesn't support redirects yet
+      redirect_to '/estimate' if url.path == '/'
+
       random_index = rand(available_card_decks.length)
       set_card_deck(available_card_decks[random_index])
+
+      page._session = params._session
     end
 
     def show
+      page._session_url = url.url_with(user: nil, card_deck: nil)
+
       session = params._session
       user = params._user
 

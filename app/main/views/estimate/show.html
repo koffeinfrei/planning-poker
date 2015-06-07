@@ -2,6 +2,10 @@
   Estimate!
 
 <:Body>
+  <div class="action-header">
+    Session URL: <a href="{{ page._session_url }}">{{ page._session_url }}</a>
+  </div>
+
   <div class="card-container">
   {{ available_points.each do |point| }}
     <div class="card-wrapper{{ ' active' if _point == point}}">
@@ -27,7 +31,6 @@
   {{ end }}
   </div>
 
-
-  <div class="actions">
+  <div class="action-footer">
     <a e-click="reset_round" class="btn btn-default">Next round!</a>
   </div>
