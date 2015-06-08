@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.1'
+
 gem 'volt', '0.9.0.pre7'
 
 # The following gem's are optional for themeing
