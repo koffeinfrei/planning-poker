@@ -79,13 +79,13 @@ body {
 .card-front {
   transform: rotateY(-179deg);
   transform-style: preserve-3d;
-  transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out;
 }
 
 .card-back {
   transform: rotateX(0deg) rotateY(0deg);
   transform-style: preserve-3d;
-  transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out;
 }
 
 .flip .card-front {
