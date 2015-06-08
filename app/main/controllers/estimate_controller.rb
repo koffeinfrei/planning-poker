@@ -68,7 +68,7 @@ module Main
     end
 
     def round_finished?
-      estimates.all?(&:_point)
+      estimates.count > 1 && estimates.all?(&:_point)
     end
 
     def set_point(point)
