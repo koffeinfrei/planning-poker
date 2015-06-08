@@ -18,13 +18,15 @@ module Main
       session = params._session
       user = params._user
 
-      store._estimates.find(user: user).then do |estimates|
-        estimates.reverse.each(&:destroy)
-      end.then do
-        store._estimates << {
-          user: user,
-          session: session
-        }
+      store._estimates.find(user: user, session: session).then do |estimates|
+        if estimates[0]
+          estimates[0].tap { |estimate| estimate._point = false }
+        else
+          store._estimates << {
+            user: user,
+            session: session
+          }
+        end
       end.then do |estimate|
         self.model = estimate
       end
