@@ -16,7 +16,7 @@ module Main
       page._session_url = url.url_with(user: nil, card_deck: nil)
 
       session = params._session
-      user = params._user
+      user = unescape(params._user)
 
       store._estimates.find(user: user, session: session).then do |estimates|
         if estimates[0]
@@ -78,6 +78,11 @@ module Main
     # `SecureRandom.urlsafe_base64` is missing from opal
     def generate_random_string
       `Math.random().toString(36).substr(2)`
+    end
+
+    # `URI.unescape` is missing from opal
+    def unescape(value)
+      `decodeURI(value)`
     end
 
     def card_image_url(point)
