@@ -15,6 +15,9 @@ module Main
     def show
       page._session_url = url.url_with(user: nil, card_deck: nil)
 
+      # guest user doesn't need more setup
+      return if params._user == 'guest'
+
       session = params._session
       user = unescape(params._user)
 
@@ -42,6 +45,11 @@ module Main
       # `redirect_to "/estimate/#{session}/#{user}"` somehow messes up
       # the page state and yields weird task errors.
       `window.location.href = '/estimate/' + session + '/' + card_deck + '/' + user`
+    end
+
+    def enter_guest_session
+      page._user = 'guest'
+      enter_session
     end
 
     def available_points
@@ -99,6 +107,10 @@ module Main
 
     def set_card_deck(deck)
       page._card_deck = deck
+    end
+
+    def guest_session?
+      params._user == 'guest'
     end
   end
 end

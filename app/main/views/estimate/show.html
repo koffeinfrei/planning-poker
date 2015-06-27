@@ -6,15 +6,17 @@
     Session URL: <a href="{{ page._session_url }}">{{ page._session_url }}</a>
   </div>
 
-  <div class="card-container">
-  {{ available_points.each do |point| }}
-    <div class="card-wrapper{{ ' active' if _point == point}}">
-      <a e-click="set_point(point)">
-        <img src="{{ card_image_url(point) }}" class="card" />
-      </a>
+  {{ if !guest_session? }}
+    <div class="card-container">
+    {{ available_points.each do |point| }}
+      <div class="card-wrapper{{ ' active' if _point == point}}">
+        <a e-click="set_point(point)">
+          <img src="{{ card_image_url(point) }}" class="card" />
+        </a>
+      </div>
+    {{ end }}
     </div>
   {{ end }}
-  </div>
 
   <div class="card-container">
   {{ estimates.each do |estimate| }}
@@ -31,6 +33,8 @@
   {{ end }}
   </div>
 
-  <div class="action-footer">
-    <a e-click="reset_round" class="btn btn-default">Next round!</a>
-  </div>
+  {{ if !guest_session? }}
+    <div class="action-footer">
+      <a e-click="reset_round" class="btn btn-default">Next round!</a>
+    </div>
+  {{ end }}
