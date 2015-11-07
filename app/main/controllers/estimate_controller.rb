@@ -22,8 +22,9 @@ module Main
       user = unescape(params._user)
 
       store._estimates.find(user: user, session: session).then do |estimates|
-        if estimates[0]
-          estimates[0].tap { |estimate| estimate._point = false }
+        estimate = estimates.array[0]
+        if estimate
+          estimate.tap { |e| e._point = false }
         else
           store._estimates << {
             user: user,
@@ -76,7 +77,8 @@ module Main
     end
 
     def round_finished?
-      estimates.count > 1 && estimates.all?(&:_point)
+      estimates_array = estimates.array
+      estimates_array.size > 1 && estimates_array.all?(&:_point)
     end
 
     def set_point(point)
@@ -93,12 +95,14 @@ module Main
       `decodeURI(value)`
     end
 
+    # TODO replace this by sprockets
     def card_image_url(point)
-      "/assets/images/#{params._card_deck}_#{point}.png"
+      "/app/main/assets/images/#{params._card_deck}_#{point}.png"
     end
 
+    # TODO replace this by sprockets
     def card_deck_preview_image_url(deck)
-      "/assets/images/#{deck}_joker.png"
+      "/app/main/assets/images/#{deck}_joker.png"
     end
 
     def available_card_decks
