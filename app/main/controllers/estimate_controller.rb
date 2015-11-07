@@ -43,9 +43,7 @@ module Main
       user = page._user.to_s.empty? ? "user-#{generate_random_string}" : page._user
       card_deck = page._card_deck
 
-      # `redirect_to "/estimate/#{session}/#{user}"` somehow messes up
-      # the page state and yields weird task errors.
-      `window.location.href = '/estimate/' + session + '/' + card_deck + '/' + user`
+      redirect_to "/estimate/#{session}/#{card_deck}/#{user}"
     end
 
     def enter_guest_session
