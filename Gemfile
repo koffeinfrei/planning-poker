@@ -22,6 +22,12 @@ gem 'volt-mailer', '~> 0.1.1'
 
 gem 'volt-slim'
 
+gem 'capistrano', require: false
+gem 'capistrano-bundler', require: false
+gem 'capistrano-rbenv', require: false
+gem 'capistrano-rbenv-install'
+gem 'unicorn'
+
 # Use rbnacl for message bus encrpytion
 # (optional, if you don't need encryption, disable in app.rb and remove)
 #
