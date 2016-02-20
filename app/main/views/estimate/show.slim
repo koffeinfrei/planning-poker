@@ -1,0 +1,29 @@
+tpl-title
+  | Estimate!
+
+tpl-body
+  .action-header
+    | Session URL:
+    a href=page._session_url = page._session_url
+
+  - if !guest_session?
+    .card-container
+      - available_points.each do |point|
+        .card-wrapper class=('active' if _point == point)
+          a e-click="set_point(point)"
+            img.card src=card_image_url(point)
+
+  .card-container
+    - estimates.each do |estimate|
+      .card-wrapper class=('flip' if round_finished?)
+        .card-front
+          .user-name= estimate._user
+          img.card src=card_image_url(estimate._point || page._last_estimate_point)
+        .card-back
+          .user-name= estimate._user
+          img.card src=asset_url('app/main/assets/images/back.png')
+
+  - if !guest_session?
+    .action-footer
+      a.btn.btn-default e-click="reset_round"
+        | Next round!

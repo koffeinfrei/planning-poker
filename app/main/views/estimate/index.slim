@@ -1,0 +1,24 @@
+tpl-title
+  | Get ready!
+
+tpl-body
+  form e-submit="enter_session" role="form"
+    use-fields:text value=page._session label="Existing session (optional):"
+
+    use-fields:text value=page._user label="Your name:"
+
+    .form-group
+      label.control-label
+        | Card deck:
+
+      div
+        - available_card_decks.each do |deck|
+          .card-wrapper.small class=('active' if page._card_deck == deck)
+            a e-click="set_card_deck(deck)"
+              img.card src=card_deck_preview_image_url(deck)
+
+    button.btn.btn-default
+      = page._session.to_s.empty? ? "Create session" : "Enter session"
+
+    a.btn.btn-link e-click="enter_guest_session"
+      | I only want to watch

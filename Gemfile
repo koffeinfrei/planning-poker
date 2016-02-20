@@ -20,6 +20,8 @@ gem 'volt-user_templates', '~> 0.4.0'
 # Add ability to send e-mail from apps.
 gem 'volt-mailer', '~> 0.1.1'
 
+gem 'volt-slim'
+
 # Use rbnacl for message bus encrpytion
 # (optional, if you don't need encryption, disable in app.rb and remove)
 #

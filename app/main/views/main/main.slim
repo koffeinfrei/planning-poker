@@ -1,0 +1,24 @@
+tpl-title
+  = view main_path, "title", { controller_group: 'main' }
+
+tpl-body
+  .container
+    .header
+      ul.nav.nav-pills.pull-right
+        use-nav href="/estimate"
+          | New session
+      h3.text-muted
+        | Planning poker
+
+    = view main_path, 'body', { controller_group: 'main' }
+
+    .footer
+      p
+        | Crafted by <a href="http://www.panter.ch/">Panter AG</a> at <a href="https://www.google.ch/maps/place/Ano+Amfia+240+09,+Greece/@37.1026398,22.0661795,253m/data=!3m1!1e3!4m2!3m1!1s0x1361b1ece4c17bc1:0xc1d4193d780c3112!6m1!1e1">Kalamata Klassenlager 2015</a> |
+        a href="https://github.com/panter/volt-poker"
+          | Sourcecode on Github
+
+tpl-nav
+  li class=('active' if active_tab?)
+    a href=attrs.href
+      = yield
