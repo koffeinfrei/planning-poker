@@ -18,7 +18,7 @@ tpl-body
       .card-wrapper class=('flip' if round_finished?)
         .card-front
           .user-name= estimate._user
-          img.card src=card_image_url(estimate._point || page._last_estimate_point)
+          img.card src=card_image_url(estimate._point || page._last_estimate_point || 'joker')
         .card-back
           .user-name= estimate._user
           img.card src=asset_url('app/main/assets/images/back.png')
