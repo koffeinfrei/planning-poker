@@ -1,3 +1,6 @@
+require 'main/lib/uri'
+require 'main/lib/secure_random'
+
 module Main
   class EstimateController < Volt::ModelController
     model :store
@@ -19,7 +22,7 @@ module Main
       return if params._user == 'guest'
 
       session = params._session
-      user = unescape(params._user)
+      user = URI.unescape(params._user)
 
       store._estimates.find(user: user, session: session).then do |estimates|
         estimate = estimates.array[0]
@@ -39,8 +42,8 @@ module Main
     private
 
     def enter_session
-      session = page._session.to_s.empty? ? generate_random_string : page._session
-      user = page._user.to_s.empty? ? "user-#{generate_random_string}" : page._user
+      session = page._session.to_s.empty? ? SecureRandom.urlsafe_base64 : page._session
+      user = page._user.to_s.empty? ? "user-#{SecureRandom.urlsafe_base64(8)}" : page._user
       card_deck = page._card_deck
 
       redirect_to "/estimate/#{session}/#{card_deck}/#{user}"
@@ -81,16 +84,6 @@ module Main
 
     def set_point(point)
       self.model._point = point
-    end
-
-    # `SecureRandom.urlsafe_base64` is missing from opal
-    def generate_random_string
-      `Math.random().toString(36).substr(2)`
-    end
-
-    # `URI.unescape` is missing from opal
-    def unescape(value)
-      `decodeURI(value)`
     end
 
     # TODO replace this by sprockets
