@@ -2,7 +2,7 @@
 
 Planning poker written in [Volt](http://voltframework.com/).
 
-Crafted by [Panter AG](http://www.panter.ch/">Panter AG) at the [Kalamata Klassenlager](https://www.google.ch/maps/place/Ano+Amfia+240+09,+Greece/@37.1026398,22.0661795,253m/data=!3m1!1e3!4m2!3m1!1s0x1361b1ece4c17bc1:0xc1d4193d780c3112!6m1!1e1).
+Crafted by [Panter AG](https://www.panter.ch) at the [Kalamata Klassenlager](https://www.google.ch/maps/place/Ano+Amfia+240+09,+Greece/@37.1026398,22.0661795,253m/data=!3m1!1e3!4m2!3m1!1s0x1361b1ece4c17bc1:0xc1d4193d780c3112!6m1!1e1).
 
 Licensed under the [GPL v3](https://gnu.org/licenses/gpl.html).
 
