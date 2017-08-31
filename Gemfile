@@ -22,6 +22,8 @@ gem 'volt-mailer', '~> 0.1.1'
 
 gem 'volt-slim'
 
+gem 'rack-ssl'
+
 # Use rbnacl for message bus encrpytion
 # (optional, if you don't need encryption, disable in app.rb and remove)
 #
