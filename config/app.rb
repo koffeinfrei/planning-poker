@@ -25,6 +25,8 @@ Volt.configure do |config|
 
   if ENV['MONGOLAB_URI']
     config.db_uri = ENV['MONGOLAB_URI']
+  elsif ENV['MONGODB_URI']
+    config.db_uri = ENV['MONGODB_URI']
   else
     config.db_host = 'localhost'
     config.db_port = 27017
