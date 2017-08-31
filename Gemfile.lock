@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/koffeinfrei/volt-mongo.git
+  remote: https://github.com/koffeinfrei/volt-mongo.git
   revision: 1fa06cb32c6063164385e823188552cba5ec3652
   specs:
     volt-mongo (0.2.0)
