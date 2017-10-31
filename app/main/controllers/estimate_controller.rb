@@ -86,14 +86,13 @@ module Main
       self.model._point = point
     end
 
-    # TODO replace this by sprockets
     def card_image_url(point)
-      "/app/main/assets/images/#{params._card_deck}_#{point}.png"
+      card_deck = params._card_deck
+      `$('.card-url-' + card_deck + '_' + point).attr('src')`
     end
 
-    # TODO replace this by sprockets
     def card_deck_preview_image_url(deck)
-      "/app/main/assets/images/#{deck}_joker.png"
+      `$('.card-url-' + deck + '_joker').attr('src')`
     end
 
     def available_card_decks

@@ -2,6 +2,47 @@ tpl-title
   | Estimate!
 
 tpl-body
+  / render all possible card images with `asset_url`. Sadly we can't use
+  / `asset_url` with a dynamic string, so this is how we do it.
+  .hidden
+    img.card-url-a_1 src=asset_url('app/main/assets/images/a_1.png')
+    img.card-url-a_2 src=asset_url('app/main/assets/images/a_2.png')
+    img.card-url-a_3 src=asset_url('app/main/assets/images/a_3.png')
+    img.card-url-a_5 src=asset_url('app/main/assets/images/a_5.png')
+    img.card-url-a_8 src=asset_url('app/main/assets/images/a_8.png')
+    img.card-url-a_joker src=asset_url('app/main/assets/images/a_joker.png')
+    img.card-url-b_1 src=asset_url('app/main/assets/images/b_1.png')
+    img.card-url-b_2 src=asset_url('app/main/assets/images/b_2.png')
+    img.card-url-b_3 src=asset_url('app/main/assets/images/b_3.png')
+    img.card-url-b_5 src=asset_url('app/main/assets/images/b_5.png')
+    img.card-url-b_8 src=asset_url('app/main/assets/images/b_8.png')
+    img.card-url-b_joker src=asset_url('app/main/assets/images/b_joker.png')
+    img.card-url-back src=asset_url('app/main/assets/images/back.png')
+    img.card-url-c_1 src=asset_url('app/main/assets/images/c_1.png')
+    img.card-url-c_2 src=asset_url('app/main/assets/images/c_2.png')
+    img.card-url-c_3 src=asset_url('app/main/assets/images/c_3.png')
+    img.card-url-c_5 src=asset_url('app/main/assets/images/c_5.png')
+    img.card-url-c_8 src=asset_url('app/main/assets/images/c_8.png')
+    img.card-url-c_joker src=asset_url('app/main/assets/images/c_joker.png')
+    img.card-url-d_1 src=asset_url('app/main/assets/images/d_1.png')
+    img.card-url-d_2 src=asset_url('app/main/assets/images/d_2.png')
+    img.card-url-d_3 src=asset_url('app/main/assets/images/d_3.png')
+    img.card-url-d_5 src=asset_url('app/main/assets/images/d_5.png')
+    img.card-url-d_8 src=asset_url('app/main/assets/images/d_8.png')
+    img.card-url-d_joker src=asset_url('app/main/assets/images/d_joker.png')
+    img.card-url-e_1 src=asset_url('app/main/assets/images/e_1.png')
+    img.card-url-e_2 src=asset_url('app/main/assets/images/e_2.png')
+    img.card-url-e_3 src=asset_url('app/main/assets/images/e_3.png')
+    img.card-url-e_5 src=asset_url('app/main/assets/images/e_5.png')
+    img.card-url-e_8 src=asset_url('app/main/assets/images/e_8.png')
+    img.card-url-e_joker src=asset_url('app/main/assets/images/e_joker.png')
+    img.card-url-f_1 src=asset_url('app/main/assets/images/f_1.png')
+    img.card-url-f_2 src=asset_url('app/main/assets/images/f_2.png')
+    img.card-url-f_3 src=asset_url('app/main/assets/images/f_3.png')
+    img.card-url-f_5 src=asset_url('app/main/assets/images/f_5.png')
+    img.card-url-f_8 src=asset_url('app/main/assets/images/f_8.png')
+    img.card-url-f_joker src=asset_url('app/main/assets/images/f_joker.png')
+
   .action-header
     | Session URL:
     a href=page._session_url = page._session_url
