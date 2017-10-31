@@ -57,12 +57,17 @@
 
 .user-name {
   position: absolute;
-  top: 21px;
+  top: 0;
   color: #000;
   text-align: center;
   width: 100%;
-  border-top: 1px dotted rgba(0, 0, 0, 0.3);
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  padding-top: 4px;
 }
 
 .card-front,
