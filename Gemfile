@@ -55,7 +55,7 @@ end
 group :production do
   # Asset compilation gems, they will be required when needed.
   gem 'csso-rails', '~> 0.3.4', require: false
-  gem 'uglifier', '>= 2.4.0', require: false
+  gem 'uglifier', '~> 2.4', require: false
 
   # Image compression gem for precompiling assets
   gem 'image_optim'
