@@ -70,6 +70,23 @@
   padding-top: 4px;
 }
 
+.user-estimate-state {
+  position: absolute;
+  bottom: 4px;
+  text-align: center;
+  width: 100%;
+
+  .text-success {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .text-danger {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+
 .card-front,
 .card-back {
   backface-visibility: hidden;
