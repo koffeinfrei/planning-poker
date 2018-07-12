@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.4'
+ruby '2.4.4'
 
 gem 'volt', '0.9.6'
 
@@ -38,9 +38,9 @@ group :test do
   gem 'rspec', '~> 3.2.0'
   gem 'opal-rspec', '~> 0.4.2'
   gem 'capybara', '~> 2.4.4'
-  gem 'selenium-webdriver', '~> 2.47.1'
-  gem 'chromedriver-helper', '~> 1.0.0'
-  gem 'poltergeist', '~> 1.6.0'
+  gem 'selenium-webdriver', '~> 2.47'
+  gem 'chromedriver-helper', '~> 1.0'
+  gem 'poltergeist', '~> 1.6'
 end
 
 # Server for MRI
